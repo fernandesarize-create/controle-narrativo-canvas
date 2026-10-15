@@ -1,0 +1,33 @@
+/* V15: acabamento final da barra superior */
+.toolbar{
+  height:48px!important;
+  position:fixed!important;
+  top:0!important;
+  left:0!important;
+  right:0!important;
+  z-index:1000!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:10px!important;
+  padding:0 16px!important;
+  background:#f3f0e8!important;
+  color:#172238!important;
+  border:0!important;
+  border-bottom:1px solid #d8d2c6!important;
+  border-radius:0!important;
+  box-shadow:0 2px 12px rgba(23,34,56,.10)!important;
+}
+.toolbar>strong{color:#172238!important;font-weight:700!important;display:block!important}
+.toolbarGroup,.toolbarGroup.lang,.paperControl{display:flex;align-items:center;gap:2px;background:#e8e1d8;border:1px solid #d8d0c5;border-radius:4px;padding:2px}
+.toolbar button{background:transparent;color:#7b2854;border:0;border-radius:3px;padding:6px 9px;font-weight:700;cursor:pointer}
+.toolbar button:hover{background:#ddd3c9}
+.toolbar button.selected{background:#8f2857;color:#fff}
+.toolbar .printBtn{background:#f05a24;color:#fff;padding:7px 12px}
+.toolbar .printBtn:hover{background:#df4d1b}
+.paperControl{gap:5px;padding:3px 7px;color:#5e6878}
+.paperLabel{font-weight:700;font-size:9px}
+.paperControl select{border:0;background:transparent;color:#5e6878;font:inherit;font-weight:700;outline:none;cursor:pointer}
+.toolbar>span:last-child{color:#66748a;font-size:9px;white-space:nowrap}
+@media(max-width:900px){.brandLockup::before{width:210px;height:30px}.toolbar>span:last-child{display:none}}
+@media print{.toolbar{display:none!important}}
