@@ -59,3 +59,9 @@
 
 /* V11: ícones próprios para os cards de feedback */
 .feedbackHead .feedbackIcon{width:26px;height:26px;font-size:14px;border-radius:8px;background:#f8e5d8;color:#c76527}
+
+/* V12: barra de navegação separada do canvas */
+.toolbar{position:fixed;top:0;left:0;right:0;width:100%;justify-content:center;border-radius:0;border-left:0;border-right:0;border-top:0;padding:7px 16px;gap:10px;box-shadow:0 2px 12px rgba(23,34,56,.10)}
+.page{margin-top:48px}
+@media(max-width:1664px){.page{margin-top:48px;margin-left:0;margin-right:0}}
+@media print{.page{margin-top:0!important}}
