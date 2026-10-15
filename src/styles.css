@@ -31,3 +31,27 @@
 .topGrid>.col:nth-child(4) table th{font-size:5.5px;padding-left:0;padding-right:0;letter-spacing:-.1px}
 .topGrid>.col:nth-child(4) table th:last-child{overflow-wrap:anywhere}
 @media(max-width:1664px){.sidebar h1{font-size:20px}}
+
+
+/* V10: identidade completa e matriz de canais mais legível */
+.topGrid>.col:nth-child(2)>.card:first-child{flex-basis:48%}
+.topGrid>.col:nth-child(2)>.card:first-child .section{margin-bottom:8px}
+.topGrid>.col:nth-child(2)>.card:first-child .card h2{margin-bottom:9px}
+.topGrid>.col:nth-child(2)>.card:first-child .section h3{margin-bottom:4px}
+.topGrid>.col:nth-child(2)>.card:first-child .section p{line-height:1.22}
+.channelList{list-style:none;padding:0!important;display:grid;gap:4px}
+.channelList li{display:flex;align-items:center;gap:6px;line-height:1.2;margin:0!important}
+.channelIcon{display:inline-grid;place-items:center;flex:0 0 17px;width:17px;height:17px;border-radius:5px;background:#f3f0e8;color:#172238;font-size:10px;font-weight:700}
+.channelIcon.instagram{background:#f8e5ed;color:#b82e70}
+.channelIcon.tiktok{background:#e4f2f0;color:#172238}
+.channelIcon.whatsapp{background:#e0f2e5;color:#23844b}
+.channelIcon.youtube{background:#f9e2df;color:#c52d26}
+.channelIcon.press{background:#e4eaf5;color:#416eb1}
+.channelIcon.email{background:#f7edcf;color:#9b7215}
+.channelIcon.inperson{background:#ece5f6;color:#7157a5}
+.matrixPair{display:grid;gap:7px;margin-top:3px}
+.matrixPair table{margin-top:0;table-layout:fixed;font-size:7px}
+.matrixPair th{padding:5px 3px;white-space:nowrap;overflow-wrap:normal;word-break:normal;font-size:7px;letter-spacing:0}
+.matrixPair td{height:17px}
+.topGrid>.col:nth-child(4)>.card .section:has(.matrixPair){margin-top:12px;margin-bottom:0}
+.topGrid>.col:nth-child(4)>.card .section:has(.matrixPair) h3{margin-bottom:5px}
