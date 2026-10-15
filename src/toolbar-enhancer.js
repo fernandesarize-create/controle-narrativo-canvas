@@ -8,6 +8,27 @@ function currentLang(toolbar){
   return selected?.textContent.trim().toLowerCase()==='en'?'en':'pt';
 }
 
+function setPrintSize(size){
+  const page=document.querySelector('.page');
+  if(page){
+    page.classList.remove('print-a3l','print-a4l','print-a4p');
+    page.classList.add(`print-${size}`);
+  }
+  document.documentElement.dataset.printSize=size;
+}
+
+function updatePaperControl(toolbar){
+  const lang=currentLang(toolbar);
+  const label=toolbar.querySelector('.paperLabel');
+  const select=toolbar.querySelector('.paperControl select');
+  if(!label||!select)return;
+  const value=select.value||document.documentElement.dataset.printSize||'a3l';
+  label.textContent=lang==='en'?'Paper':'Tamanho';
+  select.innerHTML=PAPER_OPTIONS[lang].map(([v,t])=>`<option value="${v}">${t}</option>`).join('');
+  select.value=PAPER_OPTIONS[lang].some(([v])=>v===value)?value:'a3l';
+  setPrintSize(select.value);
+}
+
 function setupToolbar(){
   const toolbar=document.querySelector('.toolbar');
   if(!toolbar)return;
@@ -29,30 +50,15 @@ function setupToolbar(){
     paper.querySelector('select').addEventListener('change',e=>setPrintSize(e.target.value));
   }
 
+  toolbar.querySelectorAll('.toolbarGroup.lang button').forEach(button=>{
+    if(button.dataset.paperHook)return;
+    button.dataset.paperHook='1';
+    button.addEventListener('click',()=>setTimeout(()=>updatePaperControl(toolbar),0));
+  });
+
   updatePaperControl(toolbar);
 }
 
-function updatePaperControl(toolbar){
-  const lang=currentLang(toolbar);
-  const label=toolbar.querySelector('.paperLabel');
-  const select=toolbar.querySelector('.paperControl select');
-  if(!label||!select)return;
-  const value=select.value||document.documentElement.dataset.printSize||'a3l';
-  label.textContent=lang==='en'?'Paper':'Tamanho';
-  select.innerHTML=PAPER_OPTIONS[lang].map(([v,t])=>`<option value="${v}">${t}</option>`).join('');
-  select.value=PAPER_OPTIONS[lang].some(([v])=>v===value)?value:'a3l';
-  setPrintSize(select.value);
-}
-
-function setPrintSize(size){
-  const page=document.querySelector('.page');
-  if(page){
-    page.classList.remove('print-a3l','print-a4l','print-a4p');
-    page.classList.add(`print-${size}`);
-  }
-  document.documentElement.dataset.printSize=size;
-}
-
 const observer=new MutationObserver(()=>setupToolbar());
-observer.observe(document.documentElement,{subtree:true,childList:true});
+observer.observe(document.documentElement,{subtree:true,childList:true,characterData:true});
 setupToolbar();
