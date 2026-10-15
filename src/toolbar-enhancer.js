@@ -9,12 +9,16 @@ function currentLang(toolbar){
 }
 
 function setPrintSize(size){
+  const safe=['a3l','a4l','a4p'].includes(size)?size:'a3l';
   const page=document.querySelector('.page');
   if(page){
-    page.classList.remove('print-a3l','print-a4l','print-a4p');
-    page.classList.add(`print-${size}`);
+    const wanted=`print-${safe}`;
+    if(!page.classList.contains(wanted)){
+      page.classList.remove('print-a3l','print-a4l','print-a4p');
+      page.classList.add(wanted);
+    }
   }
-  document.documentElement.dataset.printSize=size;
+  if(document.documentElement.dataset.printSize!==safe)document.documentElement.dataset.printSize=safe;
 }
 
 function updatePaperControl(toolbar){
@@ -23,9 +27,13 @@ function updatePaperControl(toolbar){
   const select=toolbar.querySelector('.paperControl select');
   if(!label||!select)return;
   const value=select.value||document.documentElement.dataset.printSize||'a3l';
-  label.textContent=lang==='en'?'Paper':'Tamanho';
-  select.innerHTML=PAPER_OPTIONS[lang].map(([v,t])=>`<option value="${v}">${t}</option>`).join('');
-  select.value=PAPER_OPTIONS[lang].some(([v])=>v===value)?value:'a3l';
+  const options=PAPER_OPTIONS[lang];
+  const optionHTML=options.map(([v,t])=>`<option value="${v}">${t}</option>`).join('');
+  if(select.innerHTML!==optionHTML)select.innerHTML=optionHTML;
+  const wantedLabel=lang==='en'?'Paper':'Tamanho';
+  if(label.textContent!==wantedLabel)label.textContent=wantedLabel;
+  const next=options.some(([v])=>v===value)?value:'a3l';
+  if(select.value!==next)select.value=next;
   setPrintSize(select.value);
 }
 
@@ -53,12 +61,12 @@ function setupToolbar(){
   toolbar.querySelectorAll('.toolbarGroup.lang button').forEach(button=>{
     if(button.dataset.paperHook)return;
     button.dataset.paperHook='1';
-    button.addEventListener('click',()=>setTimeout(()=>updatePaperControl(toolbar),0));
+    button.addEventListener('click',()=>setTimeout(()=>updatePaperControl(document.querySelector('.toolbar')),0));
   });
 
   updatePaperControl(toolbar);
 }
 
 const observer=new MutationObserver(()=>setupToolbar());
-observer.observe(document.documentElement,{subtree:true,childList:true,characterData:true});
+observer.observe(document.documentElement,{subtree:true,childList:true});
 setupToolbar();
