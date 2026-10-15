@@ -1,0 +1,52 @@
+/* V14: barra clara com logo oficial Impulsa */
+.toolbar{
+  background:#f3f0e8;
+  color:#172238;
+  border-bottom:1px solid #d8d2c6;
+  box-shadow:0 2px 12px rgba(23,34,56,.10);
+}
+.brandLockup{
+  display:flex;
+  align-items:center;
+  height:100%;
+  margin-right:auto;
+  white-space:nowrap;
+}
+.brandLogo{
+  display:block;
+  width:289px;
+  height:34px;
+  object-fit:contain;
+  object-position:left center;
+}
+.toolbarGroup,
+.toolbarGroup.lang{
+  background:#e8e1d8;
+  border:1px solid #d8d0c5;
+  border-radius:4px;
+}
+.toolbar button{
+  color:#7b2854;
+}
+.toolbar button:hover{
+  background:#ddd3c9;
+}
+.toolbar button.selected{
+  background:#8f2857;
+  color:#fff;
+}
+.toolbar .printBtn{
+  background:#f05a24;
+  color:#fff;
+}
+.toolbar .printBtn:hover{
+  background:#df4d1b;
+}
+.paperControl{
+  background:#e8e1d8;
+  border:1px solid #d8d0c5;
+  color:#5e6878;
+}
+@media(max-width:900px){
+  .brandLogo{width:210px;height:30px}
+}
