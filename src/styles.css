@@ -65,3 +65,35 @@
 .page{margin-top:48px}
 @media(max-width:1664px){.page{margin-top:48px;margin-left:0;margin-right:0}}
 @media print{.page{margin-top:0!important}}
+
+/* V13: Impulsa-style top bar + paper size selector */
+.toolbar{height:48px;justify-content:flex-start;gap:10px;padding:0 9px 0 16px;background:#f30063;border:0;border-radius:0;box-shadow:0 2px 10px rgba(82,0,34,.18);color:#fff;font-size:10px}
+.toolbar strong{color:#fff}
+.toolbar>span:last-child{display:none}
+.brandLockup{display:flex;align-items:center;gap:8px;height:100%;margin-right:auto;white-space:nowrap;color:#fff}
+.brandLockup strong{font-family:Arial,Helvetica,sans-serif;font-size:23px;line-height:1;font-weight:300;letter-spacing:-1.4px}
+.brandLockup b{font-size:11px;font-weight:800;letter-spacing:.15px;margin-left:7px}
+.impulsaMark{position:relative;width:29px;height:22px;display:inline-block;flex:0 0 29px}
+.impulsaMark i{position:absolute;display:block;top:2px;width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:14px solid #fff}
+.impulsaMark i:first-child{left:0}
+.impulsaMark i:last-child{left:14px}
+.toolbarGroup{background:rgba(133,0,57,.45);border-radius:4px;padding:0;gap:0;height:32px;align-items:stretch}
+.toolbarGroup.lang{background:rgba(133,0,57,.45)}
+.toolbar button{height:32px;border-radius:4px;background:transparent;color:#fff;padding:0 15px;font-size:10px;font-weight:800}
+.toolbar button:hover{filter:none;background:rgba(255,255,255,.10)}
+.toolbar button.selected{background:#d90059;color:#fff}
+.toolbar .printBtn{height:32px;background:#fc3e00;color:#fff;border-radius:4px;padding:0 14px;display:inline-flex;align-items:center;gap:5px}
+.toolbar .printBtn:hover{background:#ef3600}
+.paperControl{height:32px;display:flex;align-items:center;gap:6px;padding:0 8px;background:rgba(133,0,57,.45);border-radius:4px;color:#fff;font-size:9px;font-weight:800;white-space:nowrap}
+.paperControl select{height:26px;border:0;border-radius:3px;background:#fff;color:#172238;font:700 9px Arial,sans-serif;padding:0 22px 0 7px;cursor:pointer;outline:none}
+@media(max-width:900px){.brandLockup b{display:none}.brandLockup strong{font-size:19px}.toolbar button{padding:0 9px}.paperLabel{display:none}.paperControl{padding:0 5px}.toolbar{gap:5px;padding-left:9px}.toolbarGroup{height:30px}.toolbar button,.paperControl,.toolbar .printBtn{height:30px}}
+
+/* Named print pages — the canvas stays visually unchanged on screen. */
+@page a3l{size:A3 landscape;margin:0}
+@page a4l{size:A4 landscape;margin:0}
+@page a4p{size:A4 portrait;margin:0}
+@media print{
+  .page.print-a3l{page:a3l}
+  .page.print-a4l{page:a4l}
+  .page.print-a4p{page:a4p}
+}
