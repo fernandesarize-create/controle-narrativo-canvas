@@ -55,3 +55,14 @@
 .matrixPair td{height:17px}
 .topGrid>.col:nth-child(4)>.card .section:has(.matrixPair){margin-top:12px;margin-bottom:0}
 .topGrid>.col:nth-child(4)>.card .section:has(.matrixPair) h3{margin-bottom:5px}
+
+
+/* V11: ícones próprios para os cards de feedback */
+.feedbackHead .feedbackIcon{width:26px;height:26px;font-size:14px;border-radius:8px;background:#f8e5d8;color:#c76527}
+.feedbackHead .fi1{background:#e2edf8;color:#416eb1}
+.feedbackHead .fi2{background:#e0f2e5;color:#23844b}
+.feedbackHead .fi3{background:#f7edcf;color:#9b7215}
+.feedbackHead .fi4{background:#ece5f6;color:#7157a5}
+.feedbackHead .fi5{background:#f8e5ed;color:#b82e70}
+.feedbackHead .fi6{background:#e4f2f0;color:#168f89}
+.feedbackHead .fi7{background:#f9e2df;color:#bd3d32}
