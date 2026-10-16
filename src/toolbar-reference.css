@@ -1,9 +1,9 @@
-/* V18 — menu superior compacto; canvas permanece inalterado */
+/* V19 — menu superior compacto; canvas permanece inalterado */
 .toolbar{height:68px!important;top:0!important;left:0!important;right:0!important;width:100%!important;box-sizing:border-box!important;display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:12px!important;padding:0 22px!important;background:#fff!important;color:#6b6b6b!important;border:0!important;border-bottom:1px solid #eee!important;border-radius:0!important;box-shadow:none!important;font-size:10px!important;white-space:nowrap!important;overflow:hidden!important}
 .toolbar>strong,.toolbar>span:last-child{display:none!important}
 .brandLockup{display:flex!important;align-items:center!important;height:100%!important;flex:0 1 auto!important;min-width:0!important;margin:0 20px 0 0!important;white-space:nowrap!important}
 .brandLockup::before{content:""!important;display:block!important;flex:0 0 auto!important;width:220px!important;height:58px!important;background:url('/impulsa-lockup.svg') center center / contain no-repeat!important}
-.brandLockup::after{content:"CONTROLE NARRATIVO"!important;display:block!important;flex:0 0 auto!important;margin-left:20px!important;color:#6b6b6b!important;font-family:Arial,Helvetica,sans-serif!important;font-size:17px!important;font-weight:700!important;letter-spacing:-.2px!important}
+.brandLockup::after{display:none!important;content:none!important}
 .toolbarGroup{display:flex!important;align-items:center!important;justify-content:center!important;gap:3px!important;flex:0 0 auto!important;padding:3px!important;background:#dce3e8!important;border:0!important;border-radius:24px!important}
 .toolbarGroup button{min-height:34px!important;padding:5px 12px!important;border:0!important;border-radius:9px!important;background:transparent!important;color:#56366f!important;font-size:13px!important;font-weight:700!important;white-space:nowrap!important;flex:0 0 auto!important}
 .toolbarGroup button:hover{background:#eef1f3!important}.toolbarGroup button.selected{background:#56366f!important;color:#fff!important}
@@ -16,6 +16,6 @@
 .paperControl::after{content:"▼"!important;margin-left:-16px!important;font-size:9px!important;pointer-events:none!important}
 .toolbar .printBtn{min-height:36px!important;flex:0 0 auto!important;padding:6px 13px!important;border:0!important;border-radius:9px!important;background:#ee5730!important;color:#fff!important;font-size:13px!important;font-weight:700!important;white-space:nowrap!important}
 .toolbar .printBtn:hover{background:#df4d29!important;filter:none!important}
-@media(max-width:1500px){.toolbar{gap:8px!important;padding:0 14px!important}.brandLockup{margin-right:8px!important}.brandLockup::before{width:200px!important;height:54px!important}.brandLockup::after{margin-left:12px!important;font-size:15px!important}.toolbarGroup button{font-size:12px!important;padding-left:10px!important;padding-right:10px!important}.toolbarGroup.lang button{min-width:62px!important;font-size:12px!important}.paperControl select,.toolbar .printBtn{font-size:12px!important}}
-@media(max-width:1200px){.brandLockup::before{width:175px!important;height:50px!important}.brandLockup::after{display:none!important}.toolbarGroup.lang button{min-width:55px!important}.toolbarGroup button{padding-left:8px!important;padding-right:8px!important}}
+@media(max-width:1500px){.toolbar{gap:8px!important;padding:0 14px!important}.brandLockup{margin-right:8px!important}.brandLockup::before{width:200px!important;height:54px!important}.toolbarGroup button{font-size:12px!important;padding-left:10px!important;padding-right:10px!important}.toolbarGroup.lang button{min-width:62px!important;font-size:12px!important}.paperControl select,.toolbar .printBtn{font-size:12px!important}}
+@media(max-width:1200px){.brandLockup::before{width:175px!important;height:50px!important}.toolbarGroup.lang button{min-width:55px!important}.toolbarGroup button{padding-left:8px!important;padding-right:8px!important}}
 @media print{.toolbar{display:none!important}}
